@@ -1,0 +1,16 @@
+{
+  "name": "web-wizards-backend",
+  "version": "1.0.0",
+  "description": "Web Wizards Backend for IEEE Hackathon",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Hrushikesh Patwardhan",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  }
+}

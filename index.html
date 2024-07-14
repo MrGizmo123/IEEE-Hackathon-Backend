@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donut Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <div id="chart"></div>
+    <script>
+      
+      const socket = io();
+      let a = 40,b = 30,c = 20,d = 10;
+
+      var options = {
+	  chart: {
+              type: 'donut',
+              expandOnClick: true,
+	  },
+	  series: [a, b, c, d],
+	  labels: ['Segment 1', 'Segment 2', 'Segment 3', 'Segment 4'],
+	  colors: ['#6366F1', '#8B5CF6', '#A78BFA', '#C4B5FD'],
+	  plotOptions: {
+              pie: {
+		  expandOnClick: true,
+		  donut: {
+		      size: '34%',
+		  }
+              }
+	  },
+	  dataLabels: {
+              enabled: false // Show or hide data labels
+	  },
+	  legend: {
+              show: true // Show or hide the legend
+	  },
+	  tooltip: {
+              enabled: true // Show or hide tooltips
+	  }
+      };
+
+      var chart = new ApexCharts(document.querySelector("#chart"), options);
+      //chart.render();
+      
+      socket.on('broadcast msg', (msg) => {
+	  a = msg[0];
+	  b = msg[1];
+	  c = msg[2];
+	  d = msg[3];
+	  console.log(a);
+	  options.series = [a,b,c,d];
+	  var chart = new ApexCharts(document.querySelector("#chart"), options);
+	  chart.render();
+      });
+      
+      
+    </script>
+  </body>
+</html>
