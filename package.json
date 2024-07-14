@@ -1,16 +1,17 @@
 {
-  "name": "web-wizards-backend",
+  "name": "ieee-hackathon",
   "version": "1.0.0",
-  "description": "Web Wizards Backend for IEEE Hackathon",
-  "main": "server.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Hrushikesh Patwardhan",
-  "license": "GPL-3.0-or-later",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "express": "^4.19.2",
-    "socket.io": "^4.7.5"
+    "mongoose": "^8.5.1"
   }
 }
